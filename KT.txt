@@ -1,0 +1,23 @@
+Run file commands:
+each python file has a line at the end commented.. Run that command
+
+Requirements:
+pip install opencv-python
+pip install dlib
+pip install face_recognition
+install other requirements needed / as errors raise
+
+Order of files to execute:
+1. build_face_dataset.py - press k to capture images, change 'ar' in command line arg to the corresponding person name.
+
+python3 build_face_dataset.py --cascade haarcascade_frontalface_default.xml --output dataset/ar
+
+Repeat step 1 for all people to identify.
+
+2. encode_faces.py
+
+python3 encode_faces.py --dataset dataset --detection-method hog --encodings encodings/encodings.pickle
+
+3. recognize_faces_image.py
+
+python3 recognize_faces_image.py --encodings encodings/encodings.pickle --image images/ar.jpg
